@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	background-color: darkcyan;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	color: white;
+}
+
+.container {
+	max-width: 80%;
+	margin: auto;
+}
+
+/* NavBar Styles */
+.navbar {
+	padding-block: 2rem;
+	background-image: linear-gradient(
+		180deg,
+		#000000 37.5%,
+		rgba(0, 0, 0, 0) 100%
+	);
+}
+
+.navbar__nav {
+	display: flex;
+	align-items: center;
+}
+
+.logo__link {
+	color: white;
+	font-size: 1.2rem;
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	text-decoration: none;
+}
+
+.logo__link:hover {
+	text-decoration: underline;
+}
+
+#searchField__form {
+	position: relative;
+	margin-left: 3rem;
+}
+
+#FaSearch {
+	position: absolute;
+	color: gray;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+}
+
+#searchField {
+	padding: 1rem 2.2rem;
+	font-family: inherit;
+	border-radius: 8px;
+	border: none;
+}
+
+.searchField__button {
+	border: solid white 1px;
+	color: white;
+	font-size: inherit;
+	font-family: inherit;
+	background-color: transparent;
+	padding: calc(1rem - 1.6px) 1.2rem;
+	border-radius: 8px;
+	margin-left: 0.5rem;
+}
+
+.moreInfo {
+	display: flex;
+	gap: 1.5rem;
+	list-style: none;
+	margin-inline-start: auto;
+}
+
+.moreInfo__link {
+	color: white;
+}
+
+.moreInfo__link:hover {
+	font-weight: 700;
+}
+
+/* homePage__list */
+
+.homePage__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+}
+
+.listItem {
+	color: white;
+}
+
+.listItem__info--rating {
+	text-decoration: none;
+}
