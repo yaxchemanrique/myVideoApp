@@ -6,7 +6,6 @@ import { useState } from 'react'
 
 const Navbar = () => {
   const location = useLocation()
-  console.log(location)
   return (
     <div className='navbar'>
       <div className='container'>

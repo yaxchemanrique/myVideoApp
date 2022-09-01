@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 // Context
 import ShowsContext from '../context/shows/ShowsContext'
@@ -15,7 +15,6 @@ const HomePage = () => {
 
   const showsContext = useContext(ShowsContext)
   const { loading, shows } = showsContext
-  console.log(shows)
   return (
     <div className='homePage'>
       {loading

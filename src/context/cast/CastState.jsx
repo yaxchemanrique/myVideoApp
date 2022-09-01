@@ -17,7 +17,6 @@ const CastState = (props) => {
   const [state, dispatch] = useReducer(CastReducer, initialState)
 
   const searchCast = async (id) => {
-    //console.log(id)
     dispatch({
       type: SET_LOADING_CAST
     })

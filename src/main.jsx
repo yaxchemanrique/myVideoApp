@@ -8,11 +8,14 @@ import App from './App'
 
 import ShowsState from './context/shows/ShowsState'
 import CastState from './context/cast/CastState'
+import SeasonsState from './context/seasons/SeasonsState'
 
 createRoot(document.getElementById('app')).render(
   <ShowsState>
     <CastState>
-      <App />
+      <SeasonsState>
+        <App />
+      </SeasonsState>
     </CastState>
   </ShowsState>
 )
