@@ -10,21 +10,20 @@ import {
 
 const CastState = (props) => {
   const initialState = {
-    cast: {},
+    cast: [],
     loading: false
   }
 
   const [state, dispatch] = useReducer(CastReducer, initialState)
 
   const searchCast = async (id) => {
-    console.log(id)
+    //console.log(id)
     dispatch({
       type: SET_LOADING_CAST
     })
+
     const { data } = await axios.get(`https://api.tvmaze.com/shows/${id}/cast`)
-
     console.log(data)
-
     dispatch({
       type: SET_CAST_SHOW,
       payload: data

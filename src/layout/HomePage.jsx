@@ -15,14 +15,15 @@ const HomePage = () => {
 
   const showsContext = useContext(ShowsContext)
   const { loading, shows } = showsContext
-
+  console.log(shows)
   return (
     <div className='homePage'>
       {loading
         ? (<h1>Loading...</h1>)
         : (
-          <div className='homePage__list'>
-            {
+            shows.length !== 0
+              ? (<div className='homePage__list'>
+                {
             shows.map((item) => (
               <ListItem
                 key={item.show.id}
@@ -33,7 +34,8 @@ const HomePage = () => {
               />
             ))
           }
-          </div>
+              </div>)
+              : (<h1>Welcome!</h1>)
           )}
     </div>
   )

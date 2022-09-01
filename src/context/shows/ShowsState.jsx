@@ -50,6 +50,7 @@ const ShowsState = (props) => {
     })
 
     const { data } = await axios.get(`https://api.tvmaze.com/shows/${id}`)
+    console.log(data)
     dispatch({
       type: SET_SINGLE_SHOW,
       payload: data

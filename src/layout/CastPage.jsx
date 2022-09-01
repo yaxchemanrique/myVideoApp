@@ -8,11 +8,15 @@ const CastPage = () => {
   const { id } = useParams()
   const { searchCast, cast, loading } = useContext(castContext)
   useEffect(() => {
-    console.log(id)
+    // console.log(id)
     searchCast(id)
   }, [])
+  console.log(cast)
   return (
-    <div>Hell</div>
+    <div>{loading
+      ? <h2>Loading...</h2>
+      : (<p>Alo</p>)}
+    </div>
   )
 }
 

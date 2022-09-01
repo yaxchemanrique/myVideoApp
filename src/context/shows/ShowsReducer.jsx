@@ -19,7 +19,6 @@ const showsReducer = (state, action) => {
         loading: false
       }
     case SET_SINGLE_SHOW:
-      console.log(action.payload)
       return {
         ...state,
         singleShow: action.payload,

@@ -20,7 +20,7 @@ const castReducer = (state, action) => {
     case CLEAR_CAST:
       return {
         ...state,
-        cast: {}
+        cast: []
       }
     default:
       return state
