@@ -18,19 +18,21 @@ const CastPage = () => {
     <div>{loading
       ? <h2>Loading...</h2>
       : (cast.length !== 0
-          ? (<ul>
-            {cast.map((item, index) => {
-              return (
-                <PersonCast
-                  key={item.character.id}
-                  id={item.character.id}
-                  image={item.character.image ? item.character.image.medium : 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'}
-                  character={item.character.name}
-                  actor={item.person.name}
-                />
-              )
-            })}
-             </ul>)
+          ? (<div className='container'>
+            <ul className='cast__container'>
+              {cast.map((item, index) => {
+                return (
+                  <PersonCast
+                    key={item.character.id}
+                    id={item.character.id}
+                    image={item.character.image ? item.character.image.medium : 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'}
+                    character={item.character.name}
+                    actor={item.person.name}
+                  />
+                )
+              })}
+            </ul>
+          </div>)
           : (<h1>Sorry, we don't have that info</h1>))}
     </div>
   )

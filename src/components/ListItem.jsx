@@ -6,8 +6,7 @@ const ListItem = ({ image, name, rating, id, summary }) => {
       <img className='listItem__img' src={image} alt={name} />
       <div className='listItem__info'>
         <p className='listItem__info--title'>{name}</p>
-        <p className='listItem__info--summary'>{summary}</p>
-        <p className='listItem__info--rating'>{rating}</p>
+        <p className='listItem__info--rating'>Rating: {rating}</p>
       </div>
     </Link>
   )

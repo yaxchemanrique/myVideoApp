@@ -7,6 +7,7 @@ import SeasonsContext from '../context/seasons/SeasonsContext'
 
 // Components
 import SeasonOptionDropdown from '../components/SeasonOptionDropdown'
+import SingleShowDesc from '../components/SingleShowDesc'
 
 const SinglePage = () => {
   const { id } = useParams()
@@ -18,24 +19,21 @@ const SinglePage = () => {
   const seasonsContext = useContext(SeasonsContext)
   const { searchSeasons, searchEpisodes, seasons, episodes } = seasonsContext
   useEffect(() => {
-    // console.log(id)
     searchSeasons(id)
-    // console.log(seasons)
   }, [])
 
-  // const removeTags = (text) => {
-  //   if (text) {
-  //     return false
-  //   } else {
-  //     text = text.toString()
-  //   }
-  //   return text.replace(/(<([^>]+)>)/gi, '')
-  // }
+  const removeTags = (text) => {
+    if (text === null || text === '') {
+      return false
+    } else {
+      text = text.toString()
+    }
+    return text.replace(/(<([^>]+)>)/gi, '')
+  }
   const [seasonId, setSeasonId] = useState('')
 
   useEffect(() => {
     searchEpisodes(seasonId)
-    console.log(episodes)
   }, [seasonId])
 
   const handleSeasonValue = (e) => {
@@ -43,35 +41,66 @@ const SinglePage = () => {
     const dropdownValueText = dropdown.options[dropdown.selectedIndex].value
     setSeasonId(dropdownValueText)
   }
-  console.log(seasonsContext)
   return (
-    <div className='singlepage__Container'>
+    <div
+      style={{
+        backgroundImage: `url(${singleShow.image ? singleShow.image.original : 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundBlendMode: 'darken',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center'
+      }}
+      className='singlepage__Container'
+    >
       <div>{loading
         ? <h2>Loading...</h2>
-        : (<p>{singleShow.name}</p>)}
+        : (
+          <SingleShowDesc
+            key={singleShow.name}
+            name={singleShow.name}
+            summary={singleShow.summary && removeTags(singleShow.summary.substring(0, 300))}
+            mainImage={singleShow.image ? singleShow.image.medium : 'https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg'}
+          />
+          )}
       </div>
-      <div>{loading
-        ? <h2>Loading...</h2>
-        : (<select
-            name='seasonSelect'
-            id='seasonSelect'
-            onChange={(e) => handleSeasonValue(e)}
-           >
-          {seasons.map((item) => (
-            <SeasonOptionDropdown
-              key={item.id}
-              id={item.id}
-              index={item.number}
-              value={item.id}
-            />
+      <div
+        style={{
+          backgroundColor: 'rgba(0,0,0,0.8)'
+        }}
+      >
+        <div className='container'>
+          {singleShow.genres && singleShow.genres.map(genre => (
+            <span key={genre} className='singleShow__genre'>{genre}</span>
           ))}
-        </select>)}
+        </div>
+
+        {loading
+          ? <h2>Loading...</h2>
+          : (<div className='container'>
+            <select
+              name='seasonSelect'
+              id='seasonSelect'
+              onChange={(e) => handleSeasonValue(e)}
+            >
+              {seasons.map((item) => (
+                <SeasonOptionDropdown
+                  key={item.id}
+                  id={item.id}
+                  index={item.number}
+                  value={item.id}
+                />
+              ))}
+            </select>
+             </div>)}
       </div>
-      <div>{loading
+      <div
+        style={{
+          backgroundColor: 'rgba(0,0,0,0.8)'
+        }}
+      >{loading
         ? <h2>Loading...</h2>
         : (<div id='episodesList'>
-          <p>Episodes</p>
-
+          <p className='container'>Episodes</p>
         </div>)}
       </div>
 

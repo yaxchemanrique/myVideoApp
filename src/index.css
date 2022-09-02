@@ -9,7 +9,7 @@
 }
 
 html {
-	background-color: darkcyan;
+	background-color: rgb(32, 32, 32);
 }
 
 body {
@@ -35,6 +35,7 @@ body {
 .navbar__nav {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 .logo__link {
@@ -85,7 +86,6 @@ body {
 	display: flex;
 	gap: 1.5rem;
 	list-style: none;
-	margin-inline-start: auto;
 }
 
 .moreInfo__link {
@@ -99,15 +99,119 @@ body {
 /* homePage__list */
 
 .homePage__list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 2rem;
+	display: grid;
+	row-gap: 2rem;
+	column-gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
 }
 
 .listItem {
 	color: white;
+	background-color: rgb(56, 56, 56);
+	padding: 1rem;
+	border-radius: 8px;
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	align-items: center;
+	text-align: center;
+}
+.listItem__img {
+	border-radius: 8px;
 }
 
-.listItem__info--rating {
-	text-decoration: none;
+.listItem__info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.listItem__info--title {
+	font-size: 1.6rem;
+	font-weight: 600;
+}
+
+.listItem:hover {
+	background-color: rgb(68, 68, 68);
+	transform: scale(1.03);
+}
+
+/* SingleShow Styles */
+.singleShow__background {
+	position: relative;
+}
+
+.singleShow__container {
+	display: flex;
+	padding-top: 8rem;
+}
+
+.singleShow__info {
+	max-width: 50%;
+}
+.singleShow__mainImg {
+	width: 40%;
+	transform: translateY(-5rem);
+	margin-left: auto;
+}
+
+.singleShow__info--title {
+	font-size: 5rem;
+	margin-bottom: 1rem;
+}
+
+#seasonSelect {
+	background-color: transparent;
+	border: white 1px solid;
+	border-radius: 8px;
+	padding: 0.5rem 1.125rem;
+	color: inherit;
+	font-family: inherit;
+	transform: translateY(-12rem);
+}
+
+.singleShow__genre {
+	padding: 0.5rem 0.75rem;
+	border: white 1px solid;
+	border-radius: 8px;
+	position: relative;
+	z-index: 5;
+	margin-bottom: 2rem;
+	margin-right: 1rem;
+	display: inline-block;
+	transform: translateY(-16rem);
+}
+
+.cast__container {
+	display: grid;
+	row-gap: 2rem;
+	column-gap: 2rem;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.castItem {
+	list-style: none;
+	background-color: rgb(56, 56, 56);
+	padding: 1rem;
+	border-radius: 8px;
+	width: fit-content;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	align-items: center;
+	text-align: center;
+}
+.castItem__img {
+	border-radius: 8px;
+}
+
+.castItem__info {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.castItem__info--actor {
+	font-weight: 600;
 }

@@ -21,7 +21,7 @@ const HomePage = () => {
         ? (<h1>Loading...</h1>)
         : (
             shows.length !== 0
-              ? (<div className='homePage__list'>
+              ? (<div className='homePage__list container'>
                 {
             shows.map((item) => (
               <ListItem
@@ -34,7 +34,7 @@ const HomePage = () => {
             ))
           }
               </div>)
-              : (<h1>Welcome!</h1>)
+              : (<h1 className='container' id='welcomeMessage'>Welcome!</h1>)
           )}
     </div>
   )
